@@ -1,0 +1,245 @@
+body{
+    background: #C6FFDD;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+@media (max-width: 1366px) {
+    .columnas{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 50px;
+        padding: 30px;
+        margin: 50px;
+    }
+}
+
+@media (max-width: 778px) {
+    .columnas{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 50px;
+        padding: 30px;
+        margin: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .columnas{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 50px;
+        padding: 30px;
+        margin: 50px;
+    }
+}
+
+.cuadro_columnas{
+    border: solid rgb(8, 8, 92) 5px;
+    background-color: rgb(145, 145, 226);
+}
+
+.titulo{
+    color: black;
+}
+
+.texto{
+    color: black;
+}
+
+.contenedor {
+            border: solid rgb(8, 8, 92) 5px;
+            background-color: rgb(145, 145, 226);
+            width: 80%;
+            padding: 20px;
+            margin: 0 auto;
+
+        }
+
+
+
+
+
+
+
+
+
+.perfil{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+
+.perfil_img{
+    width: 40%;
+}
+
+.perfil_img img{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20%;
+    border: white solid;
+}
+
+.perfil_contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.perfil_contenido h1{
+    text-transform: uppercase;
+    font-size: 34px;
+}
+
+.perfil_contenido span{
+    font-size: 24px;
+}
+
+.perfil_contenido .boton_contacto{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+
+}
+
+@media (max-width: 480px){
+
+    btnMenu {
+        display: block;
+    }
+
+    btnMenu{
+        color: white;
+        background-color: transparent;
+        margin: 10px 0 0 10px;
+        border: none;
+    }
+
+    btnMenu svg{
+        width: 25px;
+        height: 25px;
+    }
+
+    navbar_toggler {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+   
+    .perfil{
+        flex-direction: column;
+        width: 95%;
+
+    }
+
+    .perfil_img{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .perfil_contenido{
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .perfil_contenido h1{
+        font-size: 28px;
+    }
+
+    .perfil_contenido span{
+        font-size: 18px;
+    }
+
+    .perfil_contenido h2{
+        font-size: 20px;
+    }
+}
+
+contenedor_acerca{
+    width: 80px;
+    margin: 0 auto;
+    margin-top: 50px;
+    line-height: 1.8;
+    font-size: 20px;
+}
+
+
+contenedor_acerca section{
+    width: 90%;
+    margin: 0 auto;
+    border: white 2px;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+a{
+    color: white;
+    text-transform: capitalize;
+
+    &:hover{
+        color: white;
+        transform: scale(1.2);
+        transition-duration: 0.5s;
+
+    }
+}
+
+
+
+/* Estilos para navbar toggle */
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-visible {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-collapse {
+  position: relative;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-toggler {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+}
+
+#navbarToggleBtn {
+  background-color: #073642;
+  border: 2px solid #268bd2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #268bd2;
+  transition: all 0.3s;
+}
+
+#navbarToggleBtn:hover {
+  background-color: #268bd2;
+  color: #fdf6e3;
+}
+
+body {
+  padding-top: 100px;
+}
