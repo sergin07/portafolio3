@@ -37,6 +37,8 @@
             </form>
         </div>
     </div>
+
+    {% if session.id_rol == 1 %}
     <div class="col-md-7">
         <table class="table table-stripped table-bordered bg-white table-sm">
             <thead>
@@ -62,6 +64,7 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
 </div>
 
 

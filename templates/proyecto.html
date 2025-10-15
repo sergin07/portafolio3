@@ -3,6 +3,7 @@
 {%block body%}
 
 <div class="row">
+    {% if session.id_rol == 1 %}
     <div class="col-md-5">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -15,7 +16,7 @@
         {% endif %}
         {% endwith %}
 
-        <div class="card card-body">
+        <div class="carta1 card-body">
             <h3 class="titulo">Agregar Proyecto</h3>
             <form action="/add_proyecto" method="POST">
                 <div class="form-group">
@@ -35,21 +36,24 @@
             </form>
         </div>
     </div>
+    {% endif %}
 
-    <div class="col-md-7">
+    <div class="{% if session.id_rol == 1 %}col-md-7{% else %}col-md-12{% endif %}">
         <h2 class="titulo mb-3">Mis Proyectos</h2>
         <div class="row">
             {% for proyecto in proyectos %}
-            <div class="col-md-6 mb-3">
-                <div class="card">
+            <div class="{% if session.id_rol == 1 %}col-md-6{% else %}col-md-4{% endif %} mb-3">
+                <div class="carta1">
                     <div class="card-body">
                         <h4 class="card-title titulo">{{proyecto.1}}</h4>
                         <p class="card-text texto">{{proyecto.2}}</p>
                         <p class="texto"><strong>Tecnologías:</strong> {{proyecto.3}}</p>
+                        {% if session.id_rol == 1 %}
                         <div class="d-flex gap-2">
                             <a href="/edit_proyecto/{{ proyecto.0 }}" class="btn btn-secondary btn-sm">Editar</a>
                             <a href="/delete_proyecto/{{ proyecto.0 }}" class="btn btn-danger btn-sm btn-delete">Eliminar</a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

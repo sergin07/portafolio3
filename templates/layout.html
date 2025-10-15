@@ -53,11 +53,22 @@
           </li>
         </ul>
         {% if session.logged_in %}
-        <a class="navbar-brand" href="#">Hola, {{ session.username }}</a>
-        <a class="navbar-brand" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        <div class="d-flex align-items-center gap-2">
+          <span class="navbar-brand mb-0">
+            Hola, {{ session.username }}
+            {% if session.id_rol == 1 %}
+            <span class="badge bg-danger">Admin</span>
+            {% else %}
+            <span class="badge bg-info">Usuario</span>
+            {% endif %}
+          </span>
+          <a class="btn btn-outline-light btn-sm" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
         {% else %}
-        <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
-        <a class="navbar-brand" href="{{ url_for('register') }}">Registro</a>
+        <div class="d-flex  align-items-center gap-2">
+          <a class="btn btn-outline-light btn-sm" href="{{ url_for('login') }}">Login</a>
+          <a class="btn btn-outline-light btn-sm" href="{{ url_for('register') }}">Registro</a>
+        </div>
         {% endif %}
       </div>
     </div>

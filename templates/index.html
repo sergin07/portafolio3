@@ -3,6 +3,8 @@
 {%block body%}
 
 <div class="row">
+    <!-- Solo mostrar el formulario de agregar habilidades si es admin (id_rol = 1) -->
+    {% if session.id_rol == 1 %}
     <div class="col-md-5">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -35,21 +37,27 @@
             </form>
         </div>
     </div>
+    {% endif %}
 
-    <div class="col-md-7">
+    <!-- Ajustar el tamaño de la columna según si es admin o no -->
+    <div class="{% if session.id_rol == 1 %}col-md-7{% else %}col-md-12{% endif %}">
         <h2 class="titulo mb-3">Mis HABILIDADES</h2>
         <div class="row">
             {% for habilidad in habilidades %}
-            <div class="col-md-6 mb-3">
+            <div class="{% if session.id_rol == 1 %}col-md-6{% else %}col-md-4{% endif %} mb-3">
                 <div class="carta1">
                     <div class="card-body">
                         <h4 class="card-title titulo">{{habilidad.1}}</h4>
                         <p class="card-text texto">{{habilidad.2}}</p>
                         <p class="texto"><strong>Tecnologías:</strong> {{habilidad.3}}</p>
+                        
+                        <!-- Solo mostrar botones de editar/eliminar si es admin -->
+                        {% if session.id_rol == 1 %}
                         <div class="d-flex gap-2">
                             <a href="/edit_habilidad/{{ habilidad.0 }}" class="btn btn-secondary btn-sm">Editar</a>
                             <a href="/delete_habilidad/{{ habilidad.0 }}" class="btn btn-danger btn-sm btn-delete">Eliminar</a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
