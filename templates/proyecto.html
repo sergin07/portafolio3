@@ -2,23 +2,60 @@
 
 {%block body%}
 
+<div class="row">
+    <div class="col-md-5">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
 
-<div class="columnas">
+        <div class="card card-body">
+            <h3 class="titulo">Agregar Proyecto</h3>
+            <form action="/add_proyecto" method="POST">
+                <div class="form-group">
+                    <input type="text" name="NOMBRE" placeholder="Nombre del Proyecto" class="form-control mt-1 mb-1" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="DESCRIPCION" placeholder="Descripcion del Proyecto" class="form-control mt-1 mb-1" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="TECNOLOGIAS" placeholder="Tecnologías" class="form-control mt-1 mb-1" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary w-100 mt-2 mb-2">
+                        Guardar Proyecto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-                <div class="cuadro_columnas">
-                    <h3 class="titulo">html</h3>
-                    <p class="texto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi porro possimus adipisci distinctio veniam unde dicta fuga perspiciatis dignissimos magnam in ad eaque eius, omnis cum voluptates. Eum, quia iusto?</p>
+    <div class="col-md-7">
+        <h2 class="titulo mb-3">Mis Proyectos</h2>
+        <div class="row">
+            {% for proyecto in proyectos %}
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title titulo">{{proyecto.1}}</h4>
+                        <p class="card-text texto">{{proyecto.2}}</p>
+                        <p class="texto"><strong>Tecnologías:</strong> {{proyecto.3}}</p>
+                        <div class="d-flex gap-2">
+                            <a href="/edit_proyecto/{{ proyecto.0 }}" class="btn btn-secondary btn-sm">Editar</a>
+                            <a href="/delete_proyecto/{{ proyecto.0 }}" class="btn btn-danger btn-sm btn-delete">Eliminar</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="cuadro_columnas">
-                    <h3 class="titulo">css</h3>
-                    <p class="texto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, nesciunt. Quas facere laudantium suscipit neque laborum temporibus odio, quasi saepe minus necessitatibus laboriosam magni optio labore aspernatur error veniam amet!</p>
-                </div>
-                <div class="cuadro_columnas">
-                    <h3 class="titulo">python</h3>
-                    <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos officia praesentium quibusdam. Eaque voluptates a doloremque nihil nam nesciunt, maiores illum, aliquam vero quas minus molestiae veritatis, quo omnis.</p>
-                </div>
-                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
-
 
 {%endblock%}

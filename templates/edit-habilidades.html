@@ -1,0 +1,33 @@
+{% extends 'layout.html'%}
+
+{%block body%}
+
+<div class="col-md-6 offset-md-3">
+    <div class="card card-body">
+        <h3 class="titulo">Editar habilidad</h3>
+        <form action="/update_habilidad/{{habilidad.0}}" method="POST">
+            <div class="form-group">
+                <label>Nombre del Proyecto</label>
+                <input type="text" name="NOMBRE" placeholder="Nombre" value="{{habilidad.1}}" class="form-control mt-1 mb-1" required>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea name="DESCRIPCION" placeholder="Descripción" class="form-control mt-1 mb-1" rows="4" required>{{habilidad.2}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Tecnologías</label>
+                <input type="text" name="TECNOLOGIAS" placeholder="TECNOLOGIAS" value="{{habilidad.3}}" class="form-control mt-1 mb-1" required>
+            </div>
+            <div class="d-flex gap-2 mt-3">
+                <button type="submit" class="btn btn-primary">
+                    Actualizar
+                </button>
+                <a href="/" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock%}

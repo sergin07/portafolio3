@@ -43,6 +43,7 @@ background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+
 
 .titulo{
     color: black;
+    font-size: large;
 }
 
 .texto{
@@ -109,6 +110,14 @@ background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+
 
 @media (max-width: 480px){
 
+    .perfil_contenido .boton_contacto{
+        display: flex;
+        justify-content: center;
+        width: 60%;
+
+    }
+    
+
     btnMenu {
         display: block;
     }
@@ -162,6 +171,14 @@ background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+
     .perfil_contenido h2{
         font-size: 20px;
     }
+
+    .perfil_contenido .boton_contacto{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 contenedor_acerca{
@@ -194,52 +211,29 @@ a{
 }
 
 
-
-/* Estilos para navbar toggle */
-.navbar-hidden {
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.navbar-visible {
-  transform: translateY(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.navbar-collapse {
-  position: relative;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-.navbar-toggler {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 1100;
-}
-
-#navbarToggleBtn {
-  background-color: #073642;
-  border: 2px solid #268bd2;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #268bd2;
-  transition: all 0.3s;
-}
-
-#navbarToggleBtn:hover {
-  background-color: #268bd2;
-  color: #fdf6e3;
-}
-
 body {
-  padding-top: 100px;
+    background-image: url('/static/img/img1.jpeg');
+    background-color: rgba(0, 0, 0, 0.3); 
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 991px) {
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+    }
+}
+
+
+
+.carta1{
+    background-color: rgba(149, 149, 149, 0.231);
+    border: solid 1px black;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    
 }
