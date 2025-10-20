@@ -2,6 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 app = Flask(__name__)
 
@@ -13,7 +18,7 @@ app.config['MYSQL_DB'] = 'portafolio'
 mysql = MySQL(app)
 
 # Settings
-app.secret_key = 'mysecretkey'
+app.secret_key = ('mysecretkey')
 
 def login_required(f):
     @wraps(f)
@@ -94,12 +99,10 @@ def delete_habilidad(ID):
     return redirect(url_for('index'))
 
 @app.route('/biografia')
-@login_required
 def biografia():
     return render_template('biografia.html')
 
 @app.route('/proyecto')
-@login_required
 def proyecto():
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM proyectos')
@@ -131,6 +134,7 @@ def login():
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
+@admin_required
 def register():
     if request.method == 'POST':
         username = request.form['username']
@@ -209,7 +213,6 @@ def delete_proyecto(ID):
     return redirect(url_for('proyecto'))
 
 @app.route('/contacto')
-@login_required
 def contacto():
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM contacts')

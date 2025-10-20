@@ -212,7 +212,7 @@ a{
 
 
 body {
-    background-image: url('/static/img/img1.jpeg');
+    background-image: url('/static/img/img1.webp');
     background-color: rgba(0, 0, 0, 0.3); 
     background-blend-mode: multiply;
     background-position: center;
@@ -237,3 +237,33 @@ body {
     border-radius: 10px;
     
 }
+
+.text{
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+
+}
+
+
+
+
+
+    /* Usar flexbox para empujar el footer al fondo */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+
+    /* Footer siempre al fondo */
+    footer {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+      margin-top: auto;
+    }

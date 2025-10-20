@@ -65,9 +65,8 @@
           <a class="btn btn-outline-light btn-sm" href="{{ url_for('logout') }}">Cerrar Sesión</a>
         </div>
         {% else %}
-        <div class="d-flex  align-items-center gap-2">
-          <a class="btn btn-outline-light btn-sm" href="{{ url_for('login') }}">Login</a>
-          <a class="btn btn-outline-light btn-sm" href="{{ url_for('register') }}">Registro</a>
+        <div class="d-flex align-items-center gap-2">
+          <a class="btn btn-outline-light btn-sm" href="{{ url_for('login') }}">Eres admin? CLICK AQUI</a>
         </div>
         {% endif %}
       </div>
@@ -91,7 +90,7 @@
 <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
   <footer>
-    <p class="text-white">Todos los derechos reservados - AGROSOFTS  &copy;2025</p>
+    <p class="text">Todos los derechos reservados - AGROSOFTS  &copy;2025</p>
 </footer>
 </body>
 
